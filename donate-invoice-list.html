@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-TW">
+<head>
+<meta charset="utf-8">
+<title>捐發票換點數 - 紅利桃子</title>
+<meta name="description" content="桃園市政府資科局全新打造、預計於年底上線的「市民卡紅利桃子」，運用點數發放模式，達到市政宣導、民眾有感、商家振興的目標。為加強振興力道將於7月15日提早搶先推出，結合各局處活動送出千萬元台幣等值的巨額點數，民眾獲點後可以直接到桃園在地特約商家折抵消費（1元=1點），增加生活小確幸；而商家可將獲得的點數變現，提升實質收益。" />
+<meta name="keywords" content="數位桃園, 數位振興, 商家振興, 市民卡, 紅利桃子, 桃園市民, TTPUSH, 點數特約商店" />
+
+<meta property="og:title" content="捐發票換點數 - 紅利桃子" />
+<meta property="og:description" content="桃園市政府資科局全新打造、預計於年底上線的「市民卡紅利桃子」，運用點數發放模式，達到市政宣導、民眾有感、商家振興的目標。為加強振興力道將於7月15日提早搶先推出，結合各局處活動送出千萬元台幣等值的巨額點數，民眾獲點後可以直接到桃園在地特約商家折抵消費（1元=1點），增加生活小確幸；而商家可將獲得的點數變現，提升實質收益。" />
+<meta property="og:url" content="https://point.tycg.gov.tw" />
+<meta property="og:image" content="https://point.tycg.gov.tw/images/share-pic-0704.jpg" />
+<meta property="og:type" content="website" />
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="MobileOptimized" content="width">
+<meta name="HandheldFriendly" content="true">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="shortcut icon" type="image/png" href="https://taoyuan1000.tycg.gov.tw/images/icons/favicon.ico">
+<link rel="stylesheet" href="css/standard.css">
+
+<script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
+<script src="https://kit.fontawesome.com/488bab161f.js" crossorigin="anonymous"></script>
+<script type="text/javascript" src="js/layout.js"></script>
+</head>
+ 
+<body>
+<div class="body-container">
+    <section class="donate-invoice-list">
+        <div class="top-bar">
+            <div class="nav">
+                <a href="javascript:history.back();"><i class="fa-solid fa-angle-left"></i></a>
+            </div>
+            
+            <h2>捐發票換點數</h2>
+        </div>
+
+        <div class="main-container">
+            <div class="top-cover"><img src="images/top-cover.jpg"></div>
+            <div class="main-content">
+                <h1>桃喜來七桃 捐發票享好禮</h1>
+                <div>桃園市政府地方稅務局</div>
+                <time>2022/01/22 - 2022/12/31</time>
+                <div class="info-list">
+                    <div>
+                        <b>活動獎勵</b>
+                        <span><i class="icon-point"></i> 1 
+                            / 發票</span>
+                    </div>
+                    <div>
+                        <b>發票金額限制</b>
+                        <span>NT$10 以上</span>
+                    </div>
+                    <div>
+                        <b>發票累積捐贈數量</b>
+                        <span>0</span>
+                    </div>
+                </div>
+                <p>活動期間於系統完成載具綁定，並捐贈10元以上的雲端發票即可獲得紅利桃子點數。捐贈1張即可獲得一點，一次最多10張。捐贈送出後，系統將與財政部統資料庫進行發票比對，以確認無重複捐贈，因此捐贈結果請以最後系統顯示資訊為主。</p>
+
+                <div class="form-list">
+                    <b>捐贈單位</b>
+                    <!-- 已選擇捐贈單位的話, a的class加上selected, 變成<a class="popup selected" rel="donate-object"> -->
+                    <span>
+                        <a id="donate-object-selected" class="popup" rel="donate-object">
+                            <b>選擇捐贈單位</b>
+                            <i class="fa-solid fa-angle-right"></i>
+                        </a>
+                    </span>
+                </div>
+
+                <div class="form-list">
+                    <b><i>手機載具</i><br>
+                        <span class="carrier">/ASDFGHJ</span>
+                    </b>
+                   
+                    <span>
+                        <a class="selected" href="donate-invoice-record.html">
+                            捐贈紀錄<i class="fa-solid fa-angle-right"></i>
+                        </a>
+                    </span>
+                </div>
+
+                <div class="loading">
+                    <div>
+                        <i class="icon-loading"></i>
+                        <div></div>
+                    </div>
+                </div>
+
+                <!-- 發票清單 -->
+                <table class="invoice-list">
+                    <thead>
+                        <tr>
+                            <th>&nbsp;</th>
+                            <th>發票日期</th>
+                            <th>發票號碼</th>
+                            <th>發票金額</th>
+                        </tr>
+                    </thead>
+                
+                    <tbody>
+                        <tr>
+                            <td class="check">
+                                <input type="checkbox" name="invoice" id="CW79351104" value="CW79351104" checked>
+                                <label for="CW79351104"></label>
+                            </td>
+                            <td>2022-07-03</td>
+                            <td>CW79351104</td>
+                            <td class="money">836</td>
+                        </tr>
+
+                        <tr>
+                            <td class="check">
+                                <input type="checkbox" name="invoice" id="CW79349832" value="CW79349832">
+                                <label for="CW79349832"></label>
+                            </td>
+                            <td>2022-07-03</td>
+                            <td>CW79349832</td>
+                            <td class="money">836</td>
+                        </tr>
+
+                        <tr class="check done">
+                            <td>已捐贈</td>
+                            <td>2022-07-03</td>
+                            <td>CW79987453</td>
+                            <td class="money">836</td>
+                        </tr>
+                    </tbody>
+                </table><!-- END .invoice-list -->
+            </div><!-- END .main-content -->
+
+            <a class="popup bottom-btn" rel="donate-invoice">捐贈發票 x2</a>
+
+            <!-- 不能按的狀態, a的class加上disable -->
+            <!-- <a class="popup bottom-btn disable">捐贈發票 x2</a> -->
+        </div><!-- END .main-container -->
+    </section>
+</div>
+
+<!-- 確定捐贈發票？ -->
+<div class="popup-theme" id="donate-invoice">
+    <div class="overlay-bg-x"></div>
+
+    <div class="popup-container">
+        <div class="popup-content">
+            <div class="big-icon orange"><i class="fa-solid fa-exclamation"></i></div>
+            <h3 align="center">確定捐贈5張發票？</h3>
+            <h4 align="center">一經捐贈將無法取消</h4>
+            <p><br></p>
+
+            <div class="btns">
+                <a class="popup popup-close white-btn">取消</a>
+                <a class="popup" rel="donate-invoice-success">確定</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 發票捐贈成功 -->
+<div class="popup-theme" id="donate-invoice-success">
+    <div class="overlay-bg-x"></div>
+
+    <div class="popup-container">
+        <div class="popup-content">
+            <div class="big-icon"><i class="fa-solid fa-check"></i></div>
+            <h3 align="center">發票捐贈成功</h3>
+            <h4 align="center">感謝您的參與</h4>
+            <p><br></p>
+
+            <div class="btns">
+                <a class="pink-btn full-btn popup-close" href="donate-invoice-record.html">確定</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 發票捐贈失敗 -->
+<div class="popup-theme" id="donate-invoice-error">
+    <div class="overlay-bg"></div>
+
+    <div class="popup-container">
+        <a class="popup-close-x"><i class="icon-close fa-solid fa-xmark"></i></a>
+
+        <div class="popup-content">
+            <div class="big-icon error"><i class="fa-solid fa-xmark"></i></div>
+            <h3 align="center">載具綁定失敗</h3>
+            <h4 align="center">請再試一次或詢問客服人員</h4>
+            <p><br></p>
+
+            <div class="btns">
+                <a class="pink-btn full-btn popup-close" href="donate-invoice-list.html">確定</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 捐贈單位 -->
+<div class="popup-theme" id="donate-object">
+    <div class="overlay-bg"></div>
+
+    <div class="popup-container">
+        <a class="popup-close-x"><i class="icon-close fa-solid fa-xmark"></i></a>
+
+        <div class="popup-content">
+            <h3>捐贈單位</h3>
+
+            <div class="search-bar">
+                <input type="text" placeholder="搜尋">
+                <button type="button"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </div>
+
+            <div class="object-list">
+                <div><input type="radio" name="object" id="object-077" value="社團法人桃園市瑪潮關懷協會">
+                    <label for="object-077">
+                        <b>077</b>
+                        <span>社團法人桃園市瑪潮關懷協會</span>
+                    </label>
+                </div>
+
+                <div><input type="radio" name="object" id="object-149" value="財團法人桃園市善水慈善文教基金會">
+                    <label for="object-149">
+                        <b>149</b>
+                        <span>財團法人桃園市善水慈善文教基金會</span>
+                    </label>
+                </div>
+
+                <div><input type="radio" name="object" id="object-188" value="財團法人桃園市私立庭芳啓智教養院">
+                    <label for="object-188">
+                        <b>188</b>
+                        <span>財團法人桃園市私立庭芳啓智教養院</span>
+                    </label>
+                </div>
+
+                <div><input type="radio" name="object" id="object-204" value="社團法人桃園市愛鄰舍協會">
+                    <label for="object-204">
+                        <b>204</b>
+                        <span>社團法人桃園市愛鄰舍協會</span>
+                    </label>
+                </div>
+            </div><!-- END .object-list -->
+        </div><!-- END .popup-content -->
+    </div>
+</div>
+
+</body>
+ 
+</html>

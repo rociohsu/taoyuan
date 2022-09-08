@@ -1,0 +1,279 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Roboto:wght@400;500;700&display=swap');
+@import url("reset.css");
+@import "taoyuan";
+@import url("fontawesome.min.css");
+@import url("jquery-ui.css");
+
+/* img url */
+@img-path: "../images/";
+
+/* icon */
+i.icon-point {
+    display: inline-block; width: 24px; height: 24px;
+    background-repeat: no-repeat; background-position: center; background-size: contain; 
+}
+i.icon-point { background-image: url('@{img-path}icon-point.svg'); }
+
+/* default */
+a, button, select { cursor: pointer; }
+a:hover { color: var(--color-black); }
+input:-webkit-autofill { box-shadow: 0 0 0px 1000px var(--color-white) inset !important; }
+img { max-width: 100%; height: auto; }
+
+/* border-radius */
+.rounded-corners (@radius: 3px) {
+	border-radius: @radius;
+	-webkit-border-radius: @radius;
+	-moz-border-radius: @radius;
+}
+
+/* padding box */
+.padding-box() {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box; 
+    box-sizing: border-box;
+}
+
+/* font family */
+.font-family (@font-size: 14px) {
+    font-family: 'Roboto', 'Noto Sans TC', 'Microsoft JhengHei', '黑體', sans-serif;
+    color: var(--color-regular); font-size: @font-size; font-weight: 400; letter-spacing: 0.5px; -webkit-text-size-adjust: none; 
+}
+
+/* loading */
+.loading { top: 0; left: 0; width: 100vw; height: 100vh; position: fixed; display: flex; align-items: center; justify-content: center; z-index: 9; background-color: rgba(255,255,255,0.75);
+    > div { min-width: 80px; min-height: 80px; .rounded-corners(25px); display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.6); backdrop-filter: blur(4px);
+        > div { min-width: 60px; min-height: 60px; border: 5px solid var(--color-pink); border-top: 5px solid transparent; .rounded-corners(99em); -webkit-animation: spin 1s linear infinite; animation: spin 1s linear infinite; }
+
+        i.icon-loading { display: inline-block; position: absolute; width: 24px; min-height: 24px; left: 0; right: 0; top: 0; bottom: 0; margin: auto;
+            background: url('@{img-path}icon-loading.svg') no-repeat center; background-size: contain; }
+    }
+}
+@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+@-webkit-keyframes spin { 0% { -webkit-transform: rotate(0deg); } 100% { -webkit-transform: rotate(360deg); } }
+
+.main-content .loading { position: inherit; width: 100%; height: auto; margin: 20px auto; }
+
+body { .font-family(14px); background: var(--color-bggray); }
+.body-container { position: relative; width: 100%; max-width: 820px; min-height: 100vh; margin: 0 auto; overflow: hidden; background: var(--color-bgpink); box-shadow: 0px 0px 3px 3px rgba(0, 0, 0, 0.05); }
+
+.popup-theme { 
+    .overlay-bg, .overlay-bg-x { 
+        position: fixed; width: 100%; height: 100%; left: 0; top: 0; right: 0; bottom: 0;
+        background: rgba(0,0,0,0.5); z-index: 6;
+    }
+
+    .popup-container { 
+        position: fixed; width: 90%; max-width: 600px; max-height: calc(100vh - 5%); left: 0; top: 0; right: 0; margin: 5% auto; padding: 20px 0;
+        background: var(--color-bggray); .rounded-corners(25px); z-index: 6; overflow: hidden;
+
+        .popup-close-x { 
+            display: block; position: absolute; right: 15px; top: 15px; text-align: center; background: var(--color-bggray); z-index: 1;
+
+            i.icon-close { display: inline-block; width: 30px; height: 30px; color: var(--color-light); font-size: 30px;
+            }
+        }
+
+        .popup-content { width: 100%; max-height: 100vh; max-height: calc(100vh - 60px); padding: 0 5% 5% 5%; color: var(--color-darker); background: var(--color-bggray); overflow: auto; 
+            h2 { margin-bottom: 20px; color: var(--color-orange); font-size: 18px; }
+            h3 { margin-bottom: 10px; font-size: 18px; font-weight: normal; }
+            h4 { margin-bottom: 7px; font-size: 12px; font-weight: normal; color: var(--color-dark); }
+            h4.red-text { margin: -20px auto 20px auto; color: var(--color-red); }
+            p { margin: 15px 0; }
+            ol { list-style-type: decimal; margin-left: 20px; color: var(--color-dark); 
+                li { margin: 15px 0; }
+            }
+            ul { list-style-type: disc; margin-left: 20px; color: var(--color-dark); 
+                li { margin: 15px 0; }
+            }
+            a { color: var(--color-blue); }
+            .big-icon > i { 
+                display: block; width: 80px; height: 80px; margin: 30px auto; 
+                color: var(--color-green); font-size: 52px; text-align: center; line-height: 64px; border: 7px solid var(--color-green); .rounded-corners(99em); 
+            }
+            .big-icon.error > i { color: var(--color-red); border: 7px solid var(--color-red); }
+            .big-icon.orange > i { color: var(--color-orange); border: 7px solid var(--color-orange); }
+            .big-icon-point { margin: 20px auto;
+                display: flex; flex-flow: nowrap; justify-content: center; align-items: center;
+                font-size: 26px; font-weight: bold; color: var(--color-darker); text-align: center; 
+                i.icon-point { width: 36px; height: 36px; margin-right: 5px; }
+            }
+
+            .btns { display: flex; flex-flow: nowrap; align-items: center; justify-content: center; margin-top: 20px;
+                > a, > button, > input[type="submit"], > input[type="reset"] {
+                    display: block; width: calc(100% - 20px); margin: 0 5px; padding: 10px 15px;
+                    color: var(--color-white); font-size: 18px; text-align: center;
+                    .rounded-corners (30px); background: var(--color-pink); 
+                }
+                .full-btn { width: 100%; margin: 0; }
+                .white-btn { color: var(--color-regular); background: var(--color-white); }
+            }
+        }
+    }
+}
+
+/* 主要外框架構 */
+.top-bar { position: relative; padding: 15px 20px;
+    > * { width: 100%; }
+    > h2 { font-size: 18px; font-weight: normal; text-align: center; line-height: 160%; }
+    .nav { position: absolute; left: 20px; top: 15px; bottom: 0;
+        a { display: inline-block; 
+            color: var(--color-blue); font-size: 14px; 
+        }
+        
+        i { color: var(--color-blue); font-size: 30px; }
+    }
+}
+
+.main-container { position: relative;
+    width: calc(100% - 40px); height: calc(100vh - 100px); margin: 0 auto;
+    background: var(--color-white); .rounded-corners (25px); overflow: auto;
+
+    .top-cover > img { width: 100%; height: auto; }
+
+    .main-content { padding: 15px 20px 60px 20px; color: var(--color-dark);
+
+        > h1 { color: var(--color-darker); font-size: 24px; font-weight: 500; }
+        > time { font-size: 12px; }
+        > p { margin-bottom: 20px; }
+
+        .info-list { margin: 20px auto;
+            > div { display: flex; flex-flow: nowrap; justify-content: space-between; align-items: center;
+                
+                > b { font-size: 12px; font-weight: normal; }
+                > span { display: inline-flex; flex-flow: nowrap; justify-content: flex-end; align-items: center;
+                    color: var(--color-darker); text-align: right;
+
+                    i.icon-point { margin-right: 5px; }
+                }
+            }
+        }
+
+        .form-list { padding: 0 20px; margin-top: 10px; height: 50px;
+            display: flex; flex-flow: nowrap; justify-content: space-between; align-items: center;
+            background: var(--color-bggray); .rounded-corners (99em);
+            
+            > b { margin-right: 10px; color: var(--color-darker); font-weight: normal; white-space: nowrap; 
+                > i { color: var(--color-dark); font-size: 12px; font-style: normal; }
+            }
+            > span { display: inline-flex; flex-flow: nowrap; justify-content: flex-end; align-items: center; overflow: hidden;
+
+                > a { display: flex; flex-flow: nowrap; align-items: center; width: 100%; color: var(--color-dark); 
+                    > b { font-weight: normal; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;  }
+                }
+
+                > a.selected { color: var(--color-darker); }
+                
+                i.fa-angle-right { margin-left: 5px; font-size: 16px; }
+
+                input[type=input], input[type=number], input[type=password] {
+                    height: 30px; .font-family(14px); text-align: right; background: none;
+                }
+            }
+        }
+
+        .form-msg { padding: 0 20px; margin-top: 10px; display: flex; flex-flow: nowrap; justify-content: space-between; align-items: center; font-size: 12px;
+            .left { color: var(--color-red); text-align: left; }
+            .right { color: var(--color-dark); text-align: right; 
+                > a { color: var(--color-dark); text-decoration: underline; }
+            }
+        }
+    }
+
+    .main-content::after { display: block; content: ''; position: fixed; width: 100%; max-width: 820px; height: 40px; left: 0; right: 0; bottom: 0; margin: 0 auto; background: var(--color-bgpink); z-index: 1; }
+
+    .bottom-btn { position: fixed; display: block; width: 90%; max-width: 780px; left: 0; right: 0; bottom: 15px; margin: 0 auto; padding: 15px;
+        color: var(--color-white); text-align: center; background: var(--color-pink); border-radius: 0 0 25px 25px; z-index: 2;
+    }
+    .bottom-btn.disable { background: var(--color-light); }
+}
+
+.donate-invoice-record .main-container { height: auto; padding-bottom: 10px; margin-bottom: 20px; min-height: calc(100vh - 80px); }
+
+/* 捐贈單位 */
+.search-bar { display: flex; flex-flow: nowrap; justify-content: space-between; align-items: center; padding-bottom: 5px; margin: 20px auto; border-bottom: 1px solid var(--color-light);
+    > input[type=text] { width: 100%; padding: 5px; color: var(--color-light); background: none; }
+    > a, button { width: 30px; padding: 5px; background: none;
+        > i { font-size: 16px; color: var(--color-pink); }
+    }
+}
+
+.object-list {
+     > div { margin-top: 10px;
+        input[type=radio] { display: none; }
+        label { display: flex; flex-flow: nowrap; justify-content: space-between; align-items: center; padding: 10px 15px;
+            background: var(--color-white); .rounded-corners(25px);
+
+            > b { width: 50px; margin-right: 10px; font-weight: normal; color: var(--color-dark); }
+
+            > span { width: 100%; text-align: right; }
+        }
+
+        input[type=radio]:checked + label { color: var(--color-white); background: var(--color-pink); 
+            > b { color: var(--color-white); }
+        }
+    }
+}
+
+/* 發票清單 */
+.invoice-list { width: 100%; margin: 20px auto;
+    thead {
+        th { padding: 7px 2px; color: var(--color-dark); font-weight: normal; text-align: center; white-space: nowrap; }
+        th:first-child { padding: 7px 0; }
+    }
+
+    tbody {
+        td { padding: 12px 2px 9px 2px; color: var(--color-darker); text-align: center; vertical-align: middle; white-space: nowrap; }
+        td.money { text-align: right; }
+        td:first-child { font-size: 12px; }
+
+        tr { position: relative; }
+        tr::after { display: block; content: ''; position: absolute; width: 100%; top: 0; left: 0; right: 0;
+            border-top: 1px solid var(--color-light); }
+
+        .check {
+            input[type=checkbox] { display: none; }
+            label { display: block; width: 20px; height: 20px; margin: 0 auto; background: var(--color-light); .rounded-corners(2px); }
+            input[type=checkbox]:checked + label {
+                background-color: var(--color-pink); background: url('@{img-path}checked.svg') no-repeat center; background-size: contain;
+            }
+        }
+        .done td { color: var(--color-light); }
+    }
+}
+
+/* 捐贈紀錄 */
+.title-bar { display: flex; flex-flow: nowrap; justify-content: space-between; align-items: center; padding: 10px 20px; background: var(--color-bggray); 
+    > b { font-size: 18px; font-weight: 500; color: var(--color-darker); }
+    i.fa-arrows-rotate { font-size: 16px; color: var(--color-dark); }
+}
+
+.record-list { display: flex; flex-flow: nowrap; justify-content: space-between; align-items: center;
+    width: 90%; margin: 0 auto; padding: 10px 0; 
+    border-bottom: 1px solid var(--color-light); 
+    
+    > div { width: 100%; }
+    > i.fa-angle-right { width: 20px; margin-left: 10px; font-size: 16px; color: var(--color-light); }
+    .left {
+        time { font-size: 12px; color: var(--color-dark); }
+    }
+    .mid { text-align: right; 
+        > div { display: flex; flex-flow: wrap; align-items: center; justify-content: flex-end; }
+        > div:last-child { font-size: 12px; color: var(--color-dark); }
+        i.icon-point { width: 20px; height: 20px; margin-right: 5px; }
+    }
+}
+.record-list:last-child { border: none; }
+
+/* 發票捐贈明細 */
+.detail-list { display: flex; display: flex; flex-flow: nowrap; align-items: flex-start; justify-content: space-between; margin-bottom: 5px; 
+    > * { width: 100%; text-align: right; }
+    > b { color: var(--color-dark); font-weight: normal; text-align: left; white-space: nowrap; }
+
+    .invices { margin-top: 4px; 
+        > div { display: flex; display: flex; flex-flow: wrap; align-items: flex-start; justify-content: flex-end; margin-bottom: 5px;
+            > b, > i { font-weight: normal; font-style: normal; white-space: nowrap; }
+        }
+        .red-text { color: var(--color-red); }
+    }
+}
