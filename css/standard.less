@@ -39,6 +39,7 @@ img { max-width: 100%; height: auto; }
     font-family: 'Roboto', 'Noto Sans TC', 'Microsoft JhengHei', '黑體', sans-serif;
     color: var(--color-regular); font-size: @font-size; font-weight: 400; letter-spacing: 0.5px; -webkit-text-size-adjust: none; 
 }
+.nowrap { white-space: nowrap; }
 
 /* loading */
 .loading { top: 0; left: 0; width: 100vw; height: 100vh; position: fixed; display: flex; align-items: center; justify-content: center; z-index: 9; background-color: rgba(255,255,255,0.75);
@@ -130,7 +131,7 @@ body { .font-family(14px); background: var(--color-bggray); }
 }
 
 .main-container { position: relative;
-    width: calc(100% - 40px); min-height: 100vh; margin: 0 auto; margin-top: 60px;
+    width: calc(100% - 30px); min-height: 100vh; margin: 0 auto; margin-top: 60px;
     background: var(--color-white); .rounded-corners (25px); overflow: auto;
 
     .top-cover > img { width: 100%; height: auto; }
@@ -186,7 +187,7 @@ body { .font-family(14px); background: var(--color-bggray); }
 
     .main-content::after { display: block; content: ''; position: fixed; width: 100%; max-width: 820px; height: 40px; left: 0; right: 0; bottom: 0; margin: 0 auto; background: var(--color-bgpink); z-index: 1; }
 
-    .bottom-btn { position: fixed; display: block; width: 90%; max-width: 780px; left: 0; right: 0; bottom: 15px; margin: 0 auto; padding: 15px;
+    .bottom-btn { position: fixed; display: block; width: calc(100% - 30px); max-width: 780px; left: 0; right: 0; bottom: 15px; margin: 0 auto; padding: 15px;
         color: var(--color-white); text-align: center; background: var(--color-pink); border-radius: 0 0 25px 25px; z-index: 2;
     }
     .bottom-btn.disable { background: var(--color-light); }
@@ -227,12 +228,11 @@ body { .font-family(14px); background: var(--color-bggray); }
     }
 
     tbody {
-        td { padding: 12px 5px 9px 5px; color: var(--color-darker); vertical-align: middle; white-space: nowrap; border-top: 1px solid var(--color-light); }
-        td.money { text-align: right; }
-        td:first-child { font-size: 12px; 
+        td { padding: 12px 5px 9px 5px; color: var(--color-darker); vertical-align: middle; border-top: 1px solid var(--color-light); }
+        td.money { width: 60px !important; text-align: right; }
+        td:first-child { font-size: 12px; text-align: center;
             > i { display: inline-block; width: 26px; height: 26px; color: var(--color-dark); font-style: normal; text-align: center; line-height: 27px; background: var(--color-lighter); .rounded-corners(2px); }
         }
-        td:last-child { white-space: inherit; }
         /*tr { position: relative; }
         tr::after { display: block; content: ''; position: absolute; width: 100%; top: 0; left: 0; right: 0;  border-top: 1px solid var(--color-light); }*/
 
@@ -241,6 +241,9 @@ body { .font-family(14px); background: var(--color-bggray); }
             label { display: block; width: 24px; height: 24px; margin: 0 auto; background-color: var(--color-white); border: 2px solid var(--color-pink); .rounded-corners(2px); }
             input[type=checkbox]:checked + label {
                 background-color: var(--color-pink) !important; background: url('@{img-path}checked.svg') no-repeat center; background-size: contain;
+            }
+            input[type=checkbox]:disabled + label {
+                border-color: var(--color-light); cursor: default;
             }
         }
         .done td { color: var(--color-light); }
